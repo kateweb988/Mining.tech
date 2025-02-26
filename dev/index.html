@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="date=no">
+	<meta name="format-detection" content="address=no">
+	<meta name="format-detection" content="email=no">
+	<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+	<title>Mining.tech</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<meta property="og:locale" content="ru-Ru">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+
+<body>
+	<h2 style="text-align: center !important; margin: 40px auto; color: black">
+		Pages
+	</h2>
+	<ul class="mm" style="display: flex; max-width: 800px; margin: 0 auto 50px; flex-wrap: wrap;">
+		<li style="width: 25%; margin: 0 auto 40px;">
+			<a href="main.html"
+				style="font-weight: bold; color: black; font-size: 25px; display: block; text-align: center;">Главная</a>
+		</li>
+		<li style="width: 25%; margin: 0 auto 40px;">
+			<a href="category.html"
+				style="font-weight: bold; color: black; font-size: 25px; display: block; text-align: center;">Категории</a>
+		</li>
+		<li style="width: 25%; margin: 0 auto;">
+			<a href="policy.html"
+				style="font-weight: bold; color: black; font-size: 25px; display: block; text-align: center;">Политика</a>
+		</li>
+		<li style="width: 25%; margin: 0 auto;">
+			<a href="error.html"
+				style="font-weight: bold; color: black; font-size: 25px; display: block; text-align: center;">404</a>
+		</li>
+		<li style="width: 25%; margin: 0 auto;">
+			<a href="contacts.html"
+				style="font-weight: bold; color: black; font-size: 25px; display: block; text-align: center;">Контакты</a>
+		</li>
+		<li style="width: 25%; margin: 0 auto;">
+			<a href="card1.html"
+				style="font-weight: bold; color: black; font-size: 25px; display: block; text-align: center;">ДВС</a>
+		</li>
+		<li style="width: 25%; margin: 0 auto;">
+			<a href="card2.html"
+				style="font-weight: bold; color: black; font-size: 25px; display: block; text-align: center;">Узлы</a>
+		</li>
+		<li style="width: 25%; margin: 0 auto;">
+			<a href="card3.html"
+				style="font-weight: bold; color: black; font-size: 25px; display: block; text-align: center;">Ходовая
+				часть</a>
+		</li>
+		<li style="width: 25%; margin: 40px auto 0;">
+			<a href="card4.html"
+				style="font-weight: bold; color: black; font-size: 25px; display: block; text-align: center;">Гидравлическая
+				система</a>
+		</li>
+		<li style="width: 25%; margin: 40px auto 0;">
+			<a href="card5.html"
+				style="font-weight: bold; color: black; font-size: 25px; display: block; text-align: center;">Расходные
+				части</a>
+		</li>
+	</ul>
+	<div class="d-flex"
+		style="justify-content: center; margin-top: 80px; max-width: 1000px; margin: 0 auto; flex-wrap: wrap;">
+		<a href="#" class="btn btn_1 a1" style="margin: 20px;">
+			Кнопка
+		</a>
+		<a href="#" class="btn btn_1 a2" style="margin: 20px;">
+			Спасибо
+		</a>
+	</div>
+
+	<div class="popup__bg" id="popup">
+		<div class="popup">
+			<div class="close-popup q">
+				<img src="img/close.svg" alt="" class="svg">
+			</div>
+			<div class="popup__wrap">
+				<h2 class="popup__title">
+					форма запроса
+				</h2>
+				<p class="popup__text">
+					Свяжитесь с нами мы вам обязательно поможем
+				</p>
+				<form action="success.php" class="popup__form js-form" id="popupResult" method="post">
+					<div class="popup__flex">
+						<input type="text" name="name" required="" placeholder="Ваше имя" class="form__field">
+						<input type="tel" name="tel" required="" placeholder="+7 (900) 000-00-00" class="tel form__field">
+						<input type="email" name="email" required="" placeholder="Почта" class="form__field">
+						<select class="select">
+							<option value="1">Производитель</option>
+							<option value="2">Производитель1</option>
+							<option value="3">Производитель2</option>
+							<option value="4">Производитель3</option>
+						</select>
+						<input type="text" name="model" required="" placeholder="Модель" class="form__field">
+						<textarea name="text" placeholder="Поле для текста"></textarea>
+					</div>
+					<button class="popup__btn btn" data-submit>
+						Связаться
+					</button>
+					<p class="popup__policy">
+						Оставляя заявку, вы соглашаетесь на обработку персональных данных в соответствии с <a href="#"
+							target="_blank"> политикой
+							конфиденциальности</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="popup__bg2" id="popup2">
+		<div class="popup2">
+			<div class="close-popup2 q">
+				<img src="img/close.svg" alt="" class="svg">
+			</div>
+			<div class="popup__wrap">
+				<h2 class="popup__title">
+					заявка отправлена
+				</h2>
+				<p class="popup__text">
+					Спасибо, скоро мы с вами свяжемся
+				</p>
+				<a href="main.html" class="popup__btn btn" data-submit>
+					На главную
+				</a>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js?ver=5.1"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+	<script src="js/all.js"></script>
+</body>
+
+</html>
