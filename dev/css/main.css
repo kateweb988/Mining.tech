@@ -939,10 +939,16 @@ ul.info li {
     border-bottom: 2px solid gainsboro;
     border-top: 2px solid gainsboro; }
   .nav__logo {
-    display: block; }
+    display: block;
+    width: 280px;
+    height: 48px;
+    position: relative; }
     .nav__logo img {
+      position: absolute;
+      top: -70px;
+      left: -11px;
       width: 100%;
-      object-fit: contain; }
+      height: auto; }
   .nav__list {
     flex-wrap: wrap;
     position: relative;
@@ -1640,7 +1646,9 @@ ul.info li {
   .card__content p {
     font-size: 14px;
     line-height: 17px;
-    margin-bottom: 30px; } }
+    margin-bottom: 30px; }
+  .nav__logo img {
+    top: -32px; } }
 
 @media screen and (max-width: 576px) {
   button:active, button:focus {
@@ -1793,4 +1801,6 @@ ul.info li {
   .card__content h1 {
     top: -2px; }
   .card .swiper8 .swiper-slide {
-    padding: 40px; } }
+    padding: 40px; }
+  .nav__logo img {
+    top: -37px; } }
