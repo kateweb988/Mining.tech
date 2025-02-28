@@ -26,7 +26,6 @@
 		href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
 		rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vjik/arcticModal@master/arcticmodal/jquery.arcticmodal.css">
-	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
 	<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -462,47 +461,6 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
-			ymaps.ready(init);
-
-			function init() {
-				var myMap = new ymaps.Map("map", {
-					// Центр карты, указываем коордианты
-					center: [59.845537, 30.322902],
-					// Масштаб, тут все просто
-					zoom: 11,
-					// Отключаем все элементы управления
-					controls: []
-				});
-
-				var myGeoObjects = [];
-
-				// Наша метка, указываем коордианты
-				myGeoObjects = new ymaps.Placemark([59.845537, 30.322902], {
-					balloonContentBody: 'Aura',
-				}, {
-					iconLayout: 'default#image',
-					// Путь до нашей картинки
-					iconImageHref: 'img/map.svg',
-					// Размер по ширине и высоте
-					iconImageSize: [50, 70],
-					// Смещение левого верхнего угла иконки относительно
-					// её «ножки» (точки привязки).
-					iconImageOffset: [-35, -35]
-				});
-
-				var clusterer = new ymaps.Clusterer({
-					clusterDisableClickZoom: false,
-					clusterOpenBalloonOnClick: false,
-				});
-
-				clusterer.add(myGeoObjects);
-				myMap.geoObjects.add(clusterer);
-				// Отлючаем возможность изменения масштаба
-				myMap.behaviors.disable('scrollZoom');
-
-			}
-		</script>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js?ver=5.1"></script>
 		<script src="https://cdn.jsdelivr.net/gh/vjik/arcticModal@master/arcticmodal/jquery.arcticmodal.js"></script>
