@@ -165,73 +165,102 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
 document.addEventListener("DOMContentLoaded", () => {
-  //popup1
-  let popupBg = document.querySelector('.popup__bg');
-  let popup = document.querySelector('.popup');
-  let openPopupButtons = document.querySelectorAll('.nav__btn, .a1');
-  let closePopupButton = document.querySelector('.close-popup');
-
-  openPopupButtons.forEach((button) => {
-    button.addEventListener('click', (e) => {
+  $(document).ready(function () {
+    $('[data-submit]').on('click', function (e) {
       e.preventDefault();
-      popupBg.classList.add('active');
-      popup.classList.add('active');
+      $(this).parents('form').submit();
     })
-  });
+    $.validator.addMethod(
+      "regex",
+      function (value, element, regexp) {
+        var re = new RegExp(regexp);
+        return this.optional(element) || re.test(value);
+      },
+      "Please check your input."
+    );
+    function valEl(el) {
 
-  closePopupButton.addEventListener('click', () => {
-    popupBg.classList.remove('active');
-    popup.classList.remove('active');
-  });
+      el.validate({
+        rules: {
+          tel: {
+            required: true,
+            regex: '^([\+]+)*[0-9\x20\x28\x29\-]{5,20}$'
+          },
+          name: {
+            required: true
+          },
+          email: {
+            required: true,
+            email: true
+          }
+        },
+        messages: {
+          tel: {
+            required: 'Заполните поле',
+            regex: 'Телефон может содержать символы + - ()'
+          },
+          name: {
+            required: 'Заполните поле',
+          },
+          text: {
+            required: 'Заполните поле',
+          },
+          email: {
+            required: 'Заполните поле',
+            email: 'Неверный формат E-mail'
+          }
+        },
+        submitHandler: function (form) {
+          $('#loader').fadeIn();
+          var $form = $(form);
+          var $formId = $(form).attr('id');
+          switch ($formId) {
+            case 'popupResult':
+              $.ajax({
+                type: 'POST',
+                url: $form.attr('action'),
+                data: $form.serialize(),
+              })
+                .always(function (response) {
+                  setTimeout(function () {
+                    $('#loader').fadeOut();
+                  }, 800);
+                  setTimeout(function () {
+                    $.arcticmodal('close');
+                    $('#popup-thank').arcticmodal({});
+                    $form.trigger('reset');
+                    //строки для остлеживания целей в Я.Метрике и Google Analytics
+                  }, 1100);
 
-  document.addEventListener('click', (e) => {
-    if (e.target === popupBg) {
-      popupBg.classList.remove('active');
-      popup.classList.remove('active');
+                });
+              break;
+          }
+          return false;
+        }
+      })
     }
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      //ваша функция закрытия окна
-      popupBg.classList.remove('active');
-      popup.classList.remove('active');
-    }
+
+    $('.js-form').each(function () {
+      valEl($(this));
+    });
+    $('[data-scroll]').on('click', function () {
+      $('html, body').animate({
+        scrollTop: $($.attr(this, 'data-scroll')).offset().top
+      }, 2000);
+      event.preventDefault();
+    })
   });
 });
-document.addEventListener("DOMContentLoaded", () => {
-  //popup2
-  let popupBg2 = document.querySelector('.popup__bg2');
-  let popup2 = document.querySelector('.popup2');
-  let openPopupButtons2 = document.querySelectorAll('.a2');
-  let closePopupButton2 = document.querySelector('.close-popup2');
+document.addEventListener('DOMContentLoaded', function () {
+  $('.articmodal-close').click(function (e) {
+    $.arcticmodal('close');
 
-  openPopupButtons2.forEach((button) => {
-    button.addEventListener('click', (e) => {
-      e.preventDefault();
-      popupBg2.classList.add('active');
-      popup2.classList.add('active');
-    })
   });
-
-  closePopupButton2.addEventListener('click', () => {
-    popupBg2.classList.remove('active');
-    popup2.classList.remove('active');
-  });
-
-  document.addEventListener('click', (e) => {
-    if (e.target === popupBg2) {
-      popupBg2.classList.remove('active');
-      popup2.classList.remove('active');
-    }
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      //ваша функция закрытия окна
-      popupBg2.classList.remove('active');
-      popup2.classList.remove('active');
-    }
+  $('.nav__btn, .footer__btn, .card__content a').click(function (e) {
+    e.preventDefault();
+    $('#popup-call').arcticmodal({
+    });
   });
 });
 document.addEventListener('DOMContentLoaded', function () {

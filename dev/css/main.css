@@ -291,24 +291,41 @@ html *::-webkit-scrollbar-thumb {
     background: #ff9d11;
     color: white; }
 
-.close-popup, .close-popup2 {
+.box-modal__close {
   position: absolute;
-  top: 17%;
-  right: 10%;
+  top: 8px;
+  right: 80px;
   cursor: pointer;
-  fill: white;
-  z-index: 20;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  background: #ff9d11;
-  height: 44px;
-  border-radius: 50px;
-  transition: 0.5s; }
-  .close-popup:hover .svg, .close-popup2:hover .svg {
+  width: 45px;
+  transition: 0.5s;
+  height: 45px;
+  z-index: 20; }
+  .box-modal__close:hover img {
+    transition: 0.5s;
     transform: rotate(90deg); }
-    .close-popup:hover .svg path, .close-popup2:hover .svg path {
-      stroke: #ff9d11; }
+
+.box-modal {
+  position: relative; }
+
+.popup-call__box {
+  position: absolute;
+  top: 40%;
+  margin-top: -300px;
+  left: 0%;
+  margin-left: 0px;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  border-radius: 10px;
+  padding: 50px;
+  background: linear-gradient(270deg, #dd8200, #dd8200 100%);
+  padding: 0 6%; }
+
+.arcticmodal-container {
+  background: linear-gradient(270deg, #dd8200, #dd8200 100%); }
+
+.arcticmodal-container_i {
+  width: 100%; }
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: rgba(103, 103, 103, 0.5) !important; }
@@ -1342,6 +1359,14 @@ ul.info li {
         height: 100%;
         object-fit: contain; }
 
+input.error {
+  border: 1px solid red !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important; }
+
+label.error {
+  display: none !important; }
+
 @media screen and (max-width: 1600px) {
   .container {
     max-width: 1350px !important; }
@@ -1803,4 +1828,9 @@ ul.info li {
   .card .swiper8 .swiper-slide {
     padding: 40px; }
   .nav__logo img {
-    top: -37px; } }
+    top: -37px; }
+  .box-modal__close {
+    right: 0;
+    top: 0px; }
+  .popup-call__box {
+    padding-top: 60px; } }
