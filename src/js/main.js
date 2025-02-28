@@ -166,6 +166,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 document.addEventListener("DOMContentLoaded", () => {
+  var originalOpen = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function (method, url) {
+    this.requestMethod = method;  // Сохраняем метод запроса
+    return originalOpen.apply(this, arguments);
+  };
   $(document).ready(function () {
     $('[data-submit]').on('click', function (e) {
       e.preventDefault();
